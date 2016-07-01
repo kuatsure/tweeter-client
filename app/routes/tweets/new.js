@@ -25,6 +25,10 @@ export default Ember.Route.extend({
       m.save().then( r => {
         this.transitionTo( 'tweet', r );
       });
+    },
+
+    cancel() {
+      this.transitionTo( 'tweets' );
     }
   }
 });
