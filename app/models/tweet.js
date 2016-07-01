@@ -6,5 +6,7 @@ export default Model.extend({
   message: attr( 'string' ),
   scheduled: attr( 'date' ),
   status: attr( 'string' ),
-  createdAt: attr( 'date' )
+  createdAt: attr( 'date', {
+    defaultValue() { return new Date(); }
+  })
 });
