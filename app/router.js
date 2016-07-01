@@ -10,6 +10,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('tweets', { path: '/' });
+  this.route('tweet', { path: 'tweet/:tweet_id' }, function() {
+    this.route('edit');
+    this.route('new');
+  });
+  this.route('sign-in');
+  this.route('four-oh-four', { path: '/*path' });
 });
 
 export default Router;
