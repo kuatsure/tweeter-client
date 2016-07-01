@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:tweet/new', 'Unit | Route | tweet/new', {
+moduleFor('route:tweets/index', 'Unit | Route | tweets/index', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
