@@ -14,6 +14,17 @@ export default Ember.Route.extend({
           return true;
         });
       }
+    },
+
+    submit() {
+      const m = this.currentModel;
+      const d = new Date( this.controller.get( 'scheduled' ) );
+
+      m.set( 'scheduled', d );
+
+      m.save().then( r => {
+        this.transitionTo( 'tweet', r );
+      });
     }
   }
 });
