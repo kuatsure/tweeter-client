@@ -1,12 +1,22 @@
+<div class="page-header">
+  <h1>Your Tweets</h1>
+</div>
+
 <ul class="list-group">
   {{#each model as |tweet_item|}}
     <li class="list-group-item">
-      {{#link-to 'tweet' tweet_item tagName="div"}}
+      {{#link-to "tweet" tweet_item tagName="div"}}
         {{tweet_item}}
       {{/link-to}}
     </li>
   {{else}}
-    <li class="list-group-item">No tweets found.</li>
+    <li class="list-group-item">
+      No tweets found.
+
+      {{#link-to "tweets.new"}}
+        Why don't you make one?
+      {{/link-to}}
+    </li>
   {{/each}}
 </ul>
 
