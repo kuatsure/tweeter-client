@@ -1,3 +1,16 @@
-{{model}}
+<div class="page-header">
+  <h1>Tweet</h1>
+</div>
+
+<p>{{model.message}}</p>
+<p>{{model.scheduled}}</p>
+<p>{{model.createdAt}}</p>
+<p>{{model.status}}</p>
+
+{{#link-to 'tweet.edit' model}}
+  {{#bs-button type="primary" buttonType="button"}}
+    Edit
+  {{/bs-button}}
+{{/link-to}}
 
 {{outlet}}

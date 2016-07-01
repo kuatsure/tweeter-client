@@ -1,3 +1,22 @@
-{{model}}
+<div class="page-header">
+  <h1>Edit Tweet</h1>
+</div>
+
+{{#bs-form model=this action="submit"}}
+  {{bs-form-element controlType="textarea" label="Message" placeholder="Message" property="model.message"}}
+  {{bs-form-element controlType="date" label="Scheduled" property="scheduled"}}
+  {{bs-form-element controlType="text" label="Status" property="model.status"}}
+
+  <div class="row">
+    <div class="col-xs-6">
+      {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+      {{bs-button defaultText="Cancel" action="cancel" buttonType="button"}}
+    </div>
+
+    <div class="col-xs-6 text-right">
+      {{bs-button defaultText="Destroy" type="warning" action="destroy" buttonType="button" classNames="text-right"}}
+    </div>
+  </div>
+{{/bs-form}}
 
 {{outlet}}
