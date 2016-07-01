@@ -1,1 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{#link-to "application" classNames="navbar-brand"}}Tweeter Client{{/link-to}}
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      {{#unless session.isAuthenticated}}
+        <li>{{#link-to "sign-in"}}Login{{/link-to}}</li>
+      {{else}}
+        <li>{{#link-to "application"}}Logout{{/link-to}}</li>
+      {{/unless}}
+    </ul>
+  </div>
+</nav>
+
 {{outlet}}
