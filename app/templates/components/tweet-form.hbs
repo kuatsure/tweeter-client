@@ -1,6 +1,14 @@
 {{bs-form-element controlType="textarea" label="Message" placeholder="Message" property="model.message"}}
 
-{{bs-form-element controlType="date" label="Scheduled" property="model.scheduled"}}
+{{#bs-form-element label="Scheduled"}}
+  {{pikaday-input
+    value=model.scheduled
+    classNames="form-control"
+    format="MMMM Do YYYY"
+    placeholder="Please select a date ..."
+    onSelection=(action (mut model.scheduled))
+  }}
+{{/bs-form-element}}
 
 {{#bs-form-element label="Status"}}
   {{#power-select
