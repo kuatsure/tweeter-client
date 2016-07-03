@@ -23,6 +23,8 @@ export default Ember.Route.extend({
           this.currentModel.rollbackAttributes();
 
           return true;
+
+        /* eslint no-else-return: "off" */
         } else {
           transition.abort();
         }
