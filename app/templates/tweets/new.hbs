@@ -3,21 +3,7 @@
 </div>
 
 {{#bs-form model=this action="submit"}}
-  {{bs-form-element controlType="textarea" label="Message" placeholder="Message" property="model.message"}}
-
-  {{bs-form-element controlType="date" label="Scheduled" property="scheduled"}}
-
-  {{#bs-form-element label="Status"}}
-    {{#power-select
-      searchEnabled=false
-      selected=model.status
-      options=statuses
-      onchange=(action (mut model.status))
-      as |status|
-    }}
-      {{status}}
-    {{/power-select}}
-  {{/bs-form-element}}
+  {{tweet-form ctrl=this model=model}}
 
   {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
   {{bs-button defaultText="Cancel" action="cancel" buttonType="button"}}

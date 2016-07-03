@@ -31,7 +31,7 @@ export default Ember.Route.extend({
 
     submit() {
       const m = this.currentModel;
-      const d = new Date( this.controller.get( 'scheduled' ) );
+      const d = new Date( this.currentModel.get( 'scheduled' ) );
 
       m.set( 'scheduled', d );
 

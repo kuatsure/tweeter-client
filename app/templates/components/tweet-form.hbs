@@ -1,0 +1,18 @@
+{{bs-form-element controlType="textarea" label="Message" placeholder="Message" property="model.message"}}
+
+{{bs-form-element controlType="date" label="Scheduled" property="model.scheduled"}}
+
+{{#bs-form-element label="Status"}}
+  {{#power-select
+    searchEnabled=false
+    selected=ctrl.model.status
+    options=ctrl.statuses
+    onchange=(action (mut model.status))
+    placeholder="Please select ..."
+    as |status|
+  }}
+    {{status}}
+  {{/power-select}}
+{{/bs-form-element}}
+
+{{yield}}
