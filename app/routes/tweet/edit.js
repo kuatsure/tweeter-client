@@ -13,8 +13,14 @@ export default Ember.Route.extend({
 
   actions: {
     willTransition( transition ) {
-      if ( !confirm( 'You have unsaved changes. Do you wish to proceed?' ) && this.currentModel.get( 'hasDirtyAttributes' ) ) {
-        transition.abort();
+      if ( this.currentModel.get( 'hasDirtyAttributes' ) ) {
+        if ( confirm( 'You have unsaved changes. Do you wish to proceed?' ) ) {
+          this.currentModel.rollbackAttributes();
+
+          return true;
+        } else {
+          transition.abort();
+        }
       } else {
         return true;
       }

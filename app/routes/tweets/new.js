@@ -7,12 +7,16 @@ export default Ember.Route.extend({
 
   actions: {
     willTransition( transition ) {
-      if ( !confirm( 'You have unsaved changes. Do you wish to proceed?' ) && this.currentModel.get( 'hasDirtyAttributes' ) ) {
-        transition.abort();
+      if ( this.currentModel.get( 'hasDirtyAttributes' ) ) {
+        if ( confirm( 'You have unsaved changes. Do you wish to proceed?' ) ) {
+          this.currentModel.destroyRecord().then( () => {
+            return true;
+          });
+        } else {
+          transition.abort();
+        }
       } else {
-        this.currentModel.destroyRecord().then( () => {
-          return true;
-        });
+        return true;
       }
     },
 
