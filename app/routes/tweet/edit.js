@@ -50,6 +50,8 @@ export default Ember.Route.extend({
       if ( confirm( 'This cannot be undone.  Do you wish to proceed?' ) ){
         m.destroyRecord().then( () => {
           this.transitionTo( 'tweets' );
+        }).catch( error => {
+          Logger.error( error );
         });
       }
     }

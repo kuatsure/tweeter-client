@@ -13,6 +13,8 @@ export default Ember.Route.extend({
         if ( confirm( 'You have unsaved changes. Do you wish to proceed?' ) ) {
           this.currentModel.destroyRecord().then( () => {
             return true;
+          }).catch( error => {
+            Logger.error( error );
           });
         } else {
           transition.abort();
