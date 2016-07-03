@@ -3,8 +3,8 @@
 </div>
 
 <p>{{model.message}}</p>
-<p>{{model.scheduled}}</p>
-<p>{{model.createdAt}}</p>
+<p>Scheduled {{moment-from-now model.scheduled}}</p>
+<p>Created on {{moment-format model.createdAt 'MMMM Do YYYY'}}</p>
 <p>{{model.status}}</p>
 
 {{#link-to 'tweet.edit' model}}
