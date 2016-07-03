@@ -5,6 +5,15 @@ export default Ember.Route.extend({
     return this.store.createRecord( 'tweet' );
   },
 
+  setupController( controller, model ) {
+    this._super( controller, model );
+
+    controller.set( 'statuses', [
+      'scheduled',
+      'posted'
+    ] );
+  },
+
   actions: {
     willTransition( transition ) {
       if ( this.currentModel.get( 'hasDirtyAttributes' ) ) {
