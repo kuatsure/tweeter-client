@@ -5,17 +5,6 @@ export default Ember.Route.extend({
     return this.modelFor( 'tweet' );
   },
 
-  setupController( controller, model ) {
-    this._super( controller, model );
-
-    controller.set( 'scheduled', new Date( model.get( 'scheduled' ) ) );
-
-    controller.set( 'statuses', [
-      'scheduled',
-      'posted'
-    ] );
-  },
-
   actions: {
     willTransition( transition ) {
       if ( this.currentModel.get( 'hasDirtyAttributes' ) ) {
