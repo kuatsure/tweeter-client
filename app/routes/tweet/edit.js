@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { Logger } = Ember;
+
 export default Ember.Route.extend({
   model() {
     return this.modelFor( 'tweet' );
@@ -25,8 +27,16 @@ export default Ember.Route.extend({
     submit() {
       const m = this.currentModel;
 
-      m.save().then( r => {
-        this.transitionTo( 'tweet', r );
+      m.validate().then( () => {
+        m.save().then( r => {
+          this.transitionTo( 'tweet', r );
+
+        }).catch( error => {
+          Logger.error( error );
+        });
+
+      }).catch( error => {
+        Logger.error( error );
       });
     },
 

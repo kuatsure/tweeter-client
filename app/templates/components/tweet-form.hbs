@@ -1,6 +1,21 @@
-{{bs-form-element controlType="textarea" label="Message" placeholder="Message" property="model.message"}}
+{{bs-form-element
+  showValidation=true
+  hasValidator=true
+  errors=model.errors.message
+  warnings=model.warnings.message
+  controlType="textarea"
+  label="Message"
+  placeholder="Message"
+  property="model.message"
+}}
 
-{{#bs-form-element label="Scheduled"}}
+{{#bs-form-element
+  showValidation=true
+  hasValidator=true
+  errors=model.errors.scheduled
+  warnings=model.warnings.scheduled
+  label="Scheduled"
+}}
   {{pikaday-input
     value=model.scheduled
     classNames="form-control"
