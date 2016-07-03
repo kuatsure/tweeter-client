@@ -2,7 +2,10 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('tweet', 'Unit | Model | tweet', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'ember-validations@validator:local/presence',
+    'ember-validations@validator:local/length'
+  ]
 });
 
 test('it exists', function(assert) {
