@@ -16,7 +16,11 @@
   {{#each model as |tweet_item|}}
     <li class="list-group-item">
       {{#link-to "tweet" tweet_item tagName="div"}}
-        {{tweet_item}}
+        <h4>
+          {{tweet_item.message}}
+        </h4>
+
+        <p>Scheduled For: {{tweet_item.scheduled}}</p>
       {{/link-to}}
     </li>
   {{else}}
