@@ -19,6 +19,7 @@ export default Ember.Route.extend({
         } else {
           transition.abort();
         }
+
       } else {
         return true;
       }
@@ -47,9 +48,10 @@ export default Ember.Route.extend({
     destroy() {
       const m = this.currentModel;
 
-      if ( confirm( 'This cannot be undone.  Do you wish to proceed?' ) ){
+      if ( confirm( 'This cannot be undone.  Do you wish to proceed?' ) ) {
         m.destroyRecord().then( () => {
           this.transitionTo( 'tweets' );
+
         }).catch( error => {
           Logger.error( error );
         });
