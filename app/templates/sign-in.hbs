@@ -1,1 +1,10 @@
+{{#bs-form model=this action="submit"}}
+  {{bs-form-element controlType="email" label="Email" placeholder="Email" property="email"}}
+
+  {{bs-form-element controlType="password" label="Password" placeholder="Password" property="password"}}
+
+  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+  {{bs-button defaultText="Cancel" action="cancel" buttonType="button"}}
+{{/bs-form}}
+
 {{outlet}}
