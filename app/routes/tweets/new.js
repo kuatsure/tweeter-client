@@ -31,8 +31,8 @@ export default Ember.Route.extend({
       const m = this.currentModel;
 
       m.validate().then( () => {
-        m.save().then( r => {
-          this.transitionTo( 'tweet', r );
+        m.save().then( () => {
+          this.transitionTo( 'tweets' );
 
         }).catch( error => {
           Logger.error( error );
