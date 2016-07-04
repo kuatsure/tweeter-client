@@ -29,8 +29,8 @@ export default Ember.Route.extend({
       const m = this.currentModel;
 
       m.validate().then( () => {
-        m.save().then( r => {
-          this.transitionTo( 'tweet', r );
+        m.save().then( () => {
+          this.transitionTo( 'tweets' );
 
         }).catch( error => {
           Logger.error( error );
@@ -42,7 +42,7 @@ export default Ember.Route.extend({
     },
 
     cancel() {
-      this.transitionTo( 'tweet', this.currentModel );
+      this.transitionTo( 'tweets' );
     },
 
     destroy() {
