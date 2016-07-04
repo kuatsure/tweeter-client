@@ -12,9 +12,9 @@
   </h1>
 </div>
 
-<ul class="list-group">
+<div class="list-group">
   {{#each model as |tweet_item|}}
-    <li class="list-group-item">
+    <a class="list-group-item">
       {{#link-to "tweet" tweet_item tagName="div"}}
         <h4>
           {{tweet_item.message}}
@@ -22,16 +22,16 @@
 
         <p>Scheduled {{moment-from-now tweet_item.scheduled}}</p>
       {{/link-to}}
-    </li>
+    </a>
   {{else}}
-    <li class="list-group-item">
+    <div class="list-group-item">
       No tweets found.
 
       {{#link-to "tweets.new"}}
         Why don't you make one?
       {{/link-to}}
-    </li>
+    </div>
   {{/each}}
-</ul>
+</div>
 
 {{outlet}}
