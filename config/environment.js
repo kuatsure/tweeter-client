@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-disable */
 
 module.exports = function(environment) {
   var ENV = {
@@ -17,10 +17,17 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    'ember-simple-auth': {
-      authenticationRoute: 'sign-in'
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'twitter': {
+          requestTokenUri: 'http://tweetlater.xyz/users/oauth'
+        }
+      }
     }
   };
+
+  // ENV['simple-auth']['crossOriginWhitelist'] = ['http://tweetlater.xyz'];
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

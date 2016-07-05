@@ -6,9 +6,9 @@
 
     <ul class="nav navbar-nav navbar-right">
       {{#unless session.isAuthenticated}}
-        <li>{{#link-to "sign-in"}}Login{{/link-to}}</li>
+        <li><a {{action "signIn"}}>Login</a></li>
       {{else}}
-        <li>{{#link-to "application"}}Logout{{/link-to}}</li>
+        <li><a {{action "signOut"}}>Logout {{session.currentUser.name}}</a></li>
       {{/unless}}
     </ul>
   </div>

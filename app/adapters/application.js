@@ -1,5 +1,5 @@
-import LSAdapter from 'ember-localstorage-adapter';
+import RESTAdapter from 'ember-data/adapters/rest';
 
-export default LSAdapter.extend({
-  namespace: 'tweeter-client'
+export default RESTAdapter.extend({
+  host: 'http://tweetlater.xyz'
 });
