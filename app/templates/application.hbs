@@ -20,5 +20,11 @@
 </nav>
 
 <div class="container">
-  {{outlet}}
+  {{#if session.isAuthenticated}}
+    {{outlet}}
+  {{else}}
+    <div class="well">
+      You're not logged in. Why don't you <a {{action "signIn"}}>login</a>?
+    </div>
+  {{/if}}
 </div>
