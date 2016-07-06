@@ -11,6 +11,8 @@ export default Ember.Route.extend({
 
     }, error => {
       Logger.error( error );
+
+      this.transitionTo( 'application' );
     });
   },
 
@@ -26,6 +28,8 @@ export default Ember.Route.extend({
 
     signOut() {
       this.get( 'session' ).close();
+
+      this.transitionTo( 'application' );
     }
   }
 });
