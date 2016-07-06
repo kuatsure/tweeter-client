@@ -15,7 +15,7 @@
 <div class="list-group">
   {{#each model as |tweet_item|}}
     <a class="list-group-item">
-      {{#link-to "tweet.edit" tweet_item tagName="div"}}
+      {{#link-to "tweet.edit" tweet_item}}
         <h4>
           {{tweet_item.message}}
         </h4>
