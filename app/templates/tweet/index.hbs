@@ -1,17 +1,9 @@
 <div class="page-header">
-  <h1>
-    Tweet
-
-    {{#link-to 'tweet.edit' model}}
-      {{#bs-button type="primary" buttonType="button" classNames="btn-xs"}}
-        Edit
-      {{/bs-button}}
-    {{/link-to}}
-  </h1>
+  <h1>Tweet</h1>
 </div>
 
 <p>{{model.message}}</p>
-<p>Scheduled {{moment-from-now model.scheduled}}</p>
+<p><span class="u-capitalize">{{model.status}}</span> {{moment-from-now model.scheduled}}</p>
 <p>Created on {{moment-format model.createdAt 'MMMM Do YYYY'}}</p>
 <p>Status: {{model.status}}</p>
 

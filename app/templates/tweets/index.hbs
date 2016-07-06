@@ -15,13 +15,13 @@
 <div class="list-group">
   {{#each model as |tweet_item|}}
     <a class="list-group-item">
-      {{#link-to "tweet.edit" tweet_item}}
+      <a {{action 'gotoTweet' tweet_item}}>
         <h4>
           {{tweet_item.message}}
         </h4>
 
-        <p>Scheduled {{moment-from-now tweet_item.scheduled}}</p>
-      {{/link-to}}
+        <p><span class="u-capitalize">{{tweet_item.status}}</span> {{moment-from-now tweet_item.scheduled}}</p>
+      </a>
     </a>
   {{else}}
     <div class="list-group-item">
