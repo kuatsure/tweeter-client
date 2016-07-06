@@ -48,7 +48,7 @@ export default Ember.Route.extend({
     destroy() {
       const m = this.currentModel;
 
-      if ( confirm( 'This cannot be undone.  Do you wish to proceed?' ) ) {
+      if ( confirm( 'This cannot be undone. Do you wish to proceed?' ) ) {
         m.destroyRecord().then( () => {
           this.transitionTo( 'tweets' );
 
