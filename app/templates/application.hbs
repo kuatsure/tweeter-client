@@ -8,7 +8,12 @@
       {{#unless session.isAuthenticated}}
         <li><a {{action "signIn"}}>Login</a></li>
       {{else}}
-        <li><a {{action "signOut"}}>Logout {{session.currentUser.name}}</a></li>
+        <li>
+          <a {{action "signOut"}}>
+            <img src="{{session.currentUser.picture}}" alt="{{session.currentUser.name}}" width="25">
+            Logout
+          </a>
+        </li>
       {{/unless}}
     </ul>
   </div>
