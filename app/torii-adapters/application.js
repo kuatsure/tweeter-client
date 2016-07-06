@@ -17,11 +17,17 @@ export default Ember.Object.extend({
     }
 
     localStorage.token = auth.code;
-    localStorage.raw = JSON.stringify( auth );
 
     const adapter = getOwner( this ).lookup( 'adapter:application' );
 
-    adapter.set( 'headers', { 'Authorization': localStorage.token });
+    adapter.set( 'headers', { 'access-token': localStorage.token });
+
+    Ember.$.ajaxSetup({
+      beforeSend( xhr ) {
+        xhr.withCredentials = true;
+        xhr.setRequestHeader( 'access-token', localStorage.token );
+      }
+    });
 
     return this.get( 'store' ).find( 'user', 'me' ).then( function( user ) {
       return {
@@ -37,9 +43,14 @@ export default Ember.Object.extend({
 
     const adapter = getOwner( this ).lookup( 'adapter:application' );
 
-    adapter.set( 'headers', { 'Authorization': localStorage.token });
-    console.log( localStorage.token );
-    console.log( adapter );
+    adapter.set( 'headers', { 'access-token': localStorage.token });
+
+    Ember.$.ajaxSetup({
+      beforeSend( xhr ) {
+        xhr.withCredentials = true;
+        xhr.setRequestHeader( 'access-token', localStorage.token );
+      }
+    });
 
     return this.get( 'store' ).find( 'user', 'me' ).then( function( user ) {
       return {
@@ -53,13 +64,20 @@ export default Ember.Object.extend({
     const adapter = getOwner( this ).lookup( 'adapter:application' );
 
     localStorage.token = null;
-    adapter.set( 'headers', { 'Authorization': authToken });
+    adapter.set( 'headers', { 'access-token': authToken });
+
+    Ember.$.ajaxSetup({
+      beforeSend( xhr ) {
+        xhr.withCredentials = true;
+        xhr.setRequestHeader( 'access-token','' );
+      }
+    });
 
     return new Ember.RSVP.Promise( function( resolve, reject ) {
       Ember.$.ajax({
         url: '/logout',
         headers: {
-          'Authorization': authToken
+          'access-token': authToken
         },
         type: 'POST',
         success: Ember.run.bind( null, resolve ),

@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-const { Logger } = Ember;
+const { Logger, inject } = Ember;
 
 export default Ember.Route.extend({
-  session: Ember.inject.service(),
+  session: inject.service(),
 
   beforeModel() {
     return this.get( 'session' ).fetch().then( () => {
