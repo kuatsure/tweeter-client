@@ -16,12 +16,12 @@
   warnings=model.warnings.scheduled
   label="Scheduled"
 }}
-  {{pikaday-input
-    value=model.scheduled
-    classNames="form-control"
-    format="MMMM Do YYYY"
+  {{bs-datetimepicker
+    forceDateOutput=true
+    date=model.scheduled
+    format="MMMM Do YYYY h:mm A"
     placeholder="Please select a date ..."
-    onSelection=(action (mut model.scheduled))
+    updateDate=(action (mut model.scheduled))
   }}
 {{/bs-form-element}}
 
