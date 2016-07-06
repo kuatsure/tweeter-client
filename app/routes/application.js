@@ -16,12 +16,6 @@ export default Ember.Route.extend({
     });
   },
 
-  redirect( model, transition ) {
-    if ( this.get( 'session.currentUser' ) && transition.targetName === 'application' ) {
-      this.transitionTo( 'tweets' );
-    }
-  },
-
   actions: {
     signIn() {
       this.get( 'session' ).open( 'twitter' ).then( () => {

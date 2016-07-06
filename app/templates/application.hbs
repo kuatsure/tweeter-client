@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      {{#link-to "application" classNames="navbar-brand"}}Tweeter Client{{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to "tweets" classNames="navbar-brand"}}Tweeter Client{{/link-to}}
+      {{else}}
+        {{#link-to "application" classNames="navbar-brand"}}Tweeter Client{{/link-to}}
+      {{/if}}
     </div>
 
     <ul class="nav navbar-nav navbar-right">
