@@ -11,7 +11,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('tweets', function() {
-    this.route('new', { path: '/tweet/new' });
+    this.route('new');
   });
   this.route('tweet', { path: '/tweet/:tweet_id' }, function() {
     this.route('edit');
